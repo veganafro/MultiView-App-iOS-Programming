@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
+#import <AudioToolbox/AudioToolbox.h>
 
 @interface AppDelegate ()
 
@@ -14,6 +16,43 @@
 
 @implementation AppDelegate
 
+@synthesize myWindow;
+@synthesize viewController;
+@synthesize infoViewController;
+@synthesize infoTwoViewController;
+@synthesize navigationController;
+
+// this can be used to allocate memory for all the views, even if they are not going to be seen immediately
+- (void) applicationDidFinishLaunching:(UIApplication *)application {
+    
+    // UIScreen is a class that knows the screen size of the device when it is sent the message bounds so the window is initialized at full screen no matter which device is opening the application
+    myWindow = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    
+    viewController = [[ViewController alloc] initWithAppDelegate: self];
+    infoViewController = [[InfoViewController alloc] initWithAppDelegate: self];
+    infoTwoViewController = [[InfoTwoViewController alloc] initWithAppDelegate: self];
+    
+    navigationController = [[UINavigationController alloc] initWithRootViewController: viewController];
+    
+    [myWindow setRootViewController: navigationController];
+    [myWindow makeKeyAndVisible];
+
+}
+
+- (void) myInfo {
+    [navigationController pushViewController: infoViewController animated:YES];
+
+}
+
+- (void) myInfoTwo {
+    [navigationController pushViewController: infoTwoViewController animated:YES];
+
+}
+
+- (void) back {
+    [navigationController popViewControllerAnimated: YES];
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
