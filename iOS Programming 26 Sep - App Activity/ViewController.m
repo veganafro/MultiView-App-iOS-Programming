@@ -32,11 +32,11 @@
     
     if (self != nil) {
         // init the navigation buttons starting with the right
-        myInfo = [[[UIBarButtonItem alloc] initWithTitle: @"Alien Info" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(myInfo)] autorelease];
+        myInfo = [[UIBarButtonItem alloc] initWithTitle: @"Alien Info" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(myInfo)];
         
         self.navigationItem.rightBarButtonItem = myInfo;
         
-        myInfoTwo = [[[UIBarButtonItem alloc] initWithTitle: @"Monster Info" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(myInfoTwo)] autorelease];
+        myInfoTwo = [[UIBarButtonItem alloc] initWithTitle: @"Monster Info" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(myInfoTwo)];
         
         self.navigationItem.leftBarButtonItem = myInfoTwo;
         
@@ -60,7 +60,7 @@
 }
 
 - (void) setPage {
-    long index = segmentedControl.selectedSegmentIndex;
+    int index = (int) segmentedControl.selectedSegmentIndex;
     
     if (index == 0) {
         textView.text = [NSString stringWithFormat: @"\n\nIt's the Monsters"];
@@ -78,10 +78,14 @@
 }
 
 - (void) loadView {
-    CGRect bounds = [[UIScreen mainScreen] applicationFrame];
+    CGRect bounds = [[UIScreen mainScreen] bounds];
     
     [super loadView];
     textView = [[UITextView alloc] initWithFrame:bounds];
+    textView.editable = NO;
+    
+    [self setPage];
+    self.view = textView;
     
 }
 
@@ -94,11 +98,71 @@
     self = [super init];
     
     if (self != nil) {
-        UIBarButtonItem * back = [[[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(back)] autorelease];
+        UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(back)];
         
         self.navigationItem.backBarButtonItem = back;
     }
     
+    return self;
+    
 }
+
+- (void) loadView {
+    [super loadView];
+    
+    textView = [[UITextView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    textView.editable = NO;
+    textView.text = @"\n\n\n\n\n\nYou won't find any information on Aliens here, either!\nSorry!";
+    textView.textColor = [UIColor blueColor];
+    textView.font = [UIFont fontWithName:@"Helvetica" size:36];
+    textView.textAlignment = NSTextAlignmentCenter;
+    
+    UIImage * alienImage = [UIImage imageNamed:@"alien_pix.png"];
+    
+    myViewPix = [[UIImageView alloc] initWithImage:alienImage];
+    
+    self.view = textView;
+    [self.view addSubview:myViewPix];
+
+}
+
+@end
+
+@implementation InfoTwoViewController
+
+- (id) initWithAppDelegate: (id) appDelegate {
+    self = [super init];
+    
+    if (self != nil) {
+        UIBarButtonItem * back = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:appDelegate action:@selector(back)];
+        
+        self.navigationItem.backBarButtonItem = back;
+    }
+    
+    return self;
+    
+}
+
+- (void) loadView {
+    [super loadView];
+    
+    textView = [[UITextView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    textView.editable = NO;
+    textView.text = @"\n\n\n\n\n\nYou won't find any information on Aliens here, either!\nSorry!";
+    textView.textColor = [UIColor blueColor];
+    textView.font = [UIFont fontWithName:@"Helvetica" size:36];
+    textView.textAlignment = NSTextAlignmentCenter;
+    
+    UIImage * monsterImage = [UIImage imageNamed:@"monster_pix.png"];
+    
+    myViewPix = [[UIImageView alloc] initWithImage:monsterImage];
+    
+    self.view = textView;
+    [self.view addSubview:myViewPix];
+    
+}
+
 
 @end

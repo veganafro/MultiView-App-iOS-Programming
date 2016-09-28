@@ -19,6 +19,10 @@
     UINavigationController * navigationController;
 }
 
+- (void) myInfo;
+- (void) myInfoTwo;
+- (void) back;
+
 @property (nonatomic, retain) IBOutlet UIWindow * myWindow;
 
 @property (nonatomic, retain) IBOutlet ViewController * viewController;
