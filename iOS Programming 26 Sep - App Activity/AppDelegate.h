@@ -33,7 +33,6 @@
 
 @property (nonatomic, retain) IBOutlet UINavigationController * navigationController;
 
-
 @property (strong, nonatomic) UIWindow *window;
 
 @property (readonly, strong) NSPersistentContainer *persistentContainer;

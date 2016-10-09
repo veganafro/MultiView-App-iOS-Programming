@@ -33,7 +33,7 @@
 @interface InfoViewController : UIViewController
 {
     UITextView * textView;
-    UIImageView * myViewPix;
+//    UIImageView * myViewPix;
     UINavigationController * navigationController;
     
 }
@@ -47,7 +47,7 @@
 @interface InfoTwoViewController : UIViewController
 {
     UITextView * textView;
-    UIImageView * myViewPix;
+//    UIImageView * myViewPix;
     UINavigationController * navigationController;
     
 }

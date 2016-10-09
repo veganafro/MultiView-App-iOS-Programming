@@ -41,6 +41,7 @@
         self.navigationItem.leftBarButtonItem = myInfoTwo;
         
         segmentedControl = [[UISegmentedControl alloc] initWithItems:nil];
+        
         [segmentedControl insertSegmentWithTitle:@"Monsters" atIndex:0 animated:NO];
         [segmentedControl insertSegmentWithTitle:@"Aliens" atIndex:1 animated:NO];
         
@@ -65,13 +66,13 @@
     if (index == 0) {
         textView.text = [NSString stringWithFormat: @"\n\nIt's the Monsters"];
         textView.textColor = [UIColor greenColor];
-        textView.font = [UIFont fontWithName:@"Helvetica" size:36];
+        textView.font = [UIFont fontWithName:@"Helvetica" size:20];
         textView.textAlignment = NSTextAlignmentCenter;
     }
     else {
         textView.text = [NSString stringWithFormat: @"\n\nIt's the Aliens"];
         textView.textColor = [UIColor redColor];
-        textView.font = [UIFont fontWithName:@"Helvetica" size:36];
+        textView.font = [UIFont fontWithName:@"Helvetica" size:20];
         textView.textAlignment = NSTextAlignmentCenter;
     }
     
@@ -115,15 +116,15 @@
     textView.editable = NO;
     textView.text = @"\n\n\n\n\n\nYou won't find any information on Aliens here, either!\nSorry!";
     textView.textColor = [UIColor blueColor];
-    textView.font = [UIFont fontWithName:@"Helvetica" size:36];
+    textView.font = [UIFont fontWithName:@"Helvetica" size:20];
     textView.textAlignment = NSTextAlignmentCenter;
     
-    UIImage * alienImage = [UIImage imageNamed:@"alien_pix.png"];
-    
-    myViewPix = [[UIImageView alloc] initWithImage:alienImage];
-    
-    self.view = textView;
-    [self.view addSubview:myViewPix];
+//    UIImage * alienImage = [UIImage imageNamed:@"alien_pix.png"];
+//    
+//    myViewPix = [[UIImageView alloc] initWithImage:alienImage];
+//    
+//    self.view = textView;
+//    [self.view addSubview:myViewPix];
 
 }
 
@@ -150,17 +151,17 @@
     textView = [[UITextView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     textView.editable = NO;
-    textView.text = @"\n\n\n\n\n\nYou won't find any information on Aliens here, either!\nSorry!";
+    textView.text = @"\n\n\n\n\n\nYou won't find any information on Monsters here, either!\nSorry!";
     textView.textColor = [UIColor blueColor];
-    textView.font = [UIFont fontWithName:@"Helvetica" size:36];
+    textView.font = [UIFont fontWithName:@"Helvetica" size:20];
     textView.textAlignment = NSTextAlignmentCenter;
     
-    UIImage * monsterImage = [UIImage imageNamed:@"monster_pix.png"];
-    
-    myViewPix = [[UIImageView alloc] initWithImage:monsterImage];
-    
-    self.view = textView;
-    [self.view addSubview:myViewPix];
+//    UIImage * monsterImage = [UIImage imageNamed:@"monster_pix.png"];
+//    
+//    myViewPix = [[UIImageView alloc] initWithImage:monsterImage];
+//    
+//    self.view = textView;
+//    [self.view addSubview:myViewPix];
     
 }
 
